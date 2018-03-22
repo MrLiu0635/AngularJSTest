@@ -1,0 +1,22 @@
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <!--*标识li及其子元素组成了一个主控模板，ngFor在heroes上迭代输出此模版的实例-->
+  <li *ngFor="let hero of heroes">
+    <!-- (click)="onClickHero(hero)" [class.selected]="hero === selectedHero" -->
+    <!-- <span class="badge">{{hero.id}}</span> {{hero.name}} -->
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+<app-hero-detaills *ngIf="selectedHero" [hero]="selectedHero"></app-hero-detaills>
+<!-- <div *ngIf="selectedHero">
+  <h2>{{selectedHero.name}} details</h2>
+  <div>
+    <label>id:</label>{{selectedHero.id}}</div>
+  <div>
+    <label>name:</label>
+    <!--双向绑定
+    <input [(ngModel)]="selectedHero.name" placeholder="name" />
+  </div>
+</div> -->

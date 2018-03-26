@@ -17,6 +17,8 @@ import { InMemoryDataService } from './in-memory-data.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { NewMetadataComponent } from './newmetadata/newmetadata.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroesComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    NewMetadataComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    ModalModule.forRoot()
   ],
   providers: [HeroService, MessageService, InMemoryDataService], // 服务提供者
   bootstrap: [AppComponent]

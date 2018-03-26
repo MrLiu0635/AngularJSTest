@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetaillsComponent } from './hero-detaills/hero-detaills.component';
+import { NewMetadataComponent } from './newmetadata/newmetadata.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'metadata', component: NewMetadataComponent },
   { path: 'heroes', component: HeroesComponent },
   // path 中的冒号（:）表示 :id 是一个占位符
   { path: 'detail/:id', component: HeroDetaillsComponent }

@@ -50,7 +50,7 @@ export class HeroService {
   /** POST: add a new hero to the server */
   addHero (hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
-      tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
+      tap((hero1: Hero) => this.log(`added hero w/ id=${hero1.id}`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
@@ -77,7 +77,7 @@ export class HeroService {
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
   }
-  
+
   private log(message: string) {
     this.messageService.add('HeroService: ' + message);
   }

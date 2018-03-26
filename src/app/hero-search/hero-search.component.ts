@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { Subject }    from 'rxjs/Subject';
-import { of }         from 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable'; // 表示一个概念，一个可调用的未来或事件的集合
+import { Subject } from 'rxjs/Subject';
+import { of } from 'rxjs/observable/of'; // rxjs中的对象，将
 
 import {
    debounceTime, distinctUntilChanged, switchMap

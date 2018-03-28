@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { NewMetadataComponent } from './newmetadata/newmetadata.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { MetadataModule } from './metadata/metadata.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     NewMetadataComponent
   ],
   imports: [
+    MetadataModule,
     BrowserModule,
     FormsModule, // 为了使用ngModel
     AppRoutingModule,

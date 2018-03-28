@@ -1,0 +1,57 @@
+<!--第二种弹出方法的组件-->
+<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal" class="modal fade"
+tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">新建元数据</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="templateBlock">
+          <div class="treeClassifier">
+            <app-treeclassifier></app-treeclassifier>
+          </div>
+          <div class="templateSelector">
+            <app-templatemetadata></app-templatemetadata>
+          </div>
+          <div class="templateInfo">
+            <div>
+              <label>数据对象是一种描述表结构的元数据。</label>
+            </div>
+          </div>
+        </div>
+        <div class="infoBlock">
+          <div class="fileCode">
+            <label for="code">编码</label>
+            <input type="text" class="form-control" required [(ngModel)]="metadata.code" ngControl="code" #code="ngModel">
+            <div [hidden]="code.valid || code.pristine" class="alert alert-danger">
+              Code is required
+            </div>
+          </div>
+          <div class="fileName">
+            <label for="name">名称</label>
+            <input type="text" class="form-control" required [(ngModel)]="metadata.name" ngControl="name" #name="ngModel">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+              Name is required
+            </div>
+          </div>
+          <div class="fileLocation">
+            <label for="location">位置</label>
+            <input type="text" class="form-control" required [(ngModel)]="metadata.location" ngControl="location" #location="ngModel">
+            <div [hidden]="location.valid || location.pristine" class="alert alert-danger">
+              Location is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="hideModal()">确定</button>
+        <button type="button" class="btn btn-default" (click)="hideModal()">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-primary" (click)="showModal()">Create New Metadata</button>

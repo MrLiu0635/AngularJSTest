@@ -1,0 +1,45 @@
+.treeClassifier
+{
+    width: 250px;
+    height: 450px;
+    border: 0.5px solid #ddd;
+}
+
+.templateSelector
+{
+    width: 450px;
+    height: 450px;
+    border: 0.5px solid #ddd;
+}
+
+.templateInfo
+{
+    width: 250px;
+    height: 450px;
+    border: 0.5px solid #ddd;
+}
+
+.templateBlock
+{
+    display: flex;
+}
+
+.infoBlock {
+  width: 100%;
+  min-width: 400px;
+  border: 0.5px solid #ddd;
+}
+
+.fileCode,
+.fileName,
+.fileLocation {
+    display: flex;
+    align-items: center;
+}
+
+.infoBlock label
+{
+    margin-top: .5rem;
+    width: 50px;
+}
+

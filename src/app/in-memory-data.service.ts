@@ -14,6 +14,23 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 19, name: 'Magma' },
       { id: 20, name: 'Tornado' }
     ];
-    return { heroes };
+    const templates = [
+      {
+        id: '01',
+        name: '业务实体',
+        icon: 'Documents_58635.png'
+      },
+      {
+        id: '02',
+        name: '业务字段',
+        icon: 'Documents_58635.png'
+      },
+      {
+        id: '03',
+        name: '数据对象',
+        icon: 'Documents_58635.png'
+      }
+    ];
+    return { heroes, templates };
   }
 }

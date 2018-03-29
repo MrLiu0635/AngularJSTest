@@ -8,12 +8,24 @@ import { MetadataTemplate } from './metadatatemplate';
 @Injectable()
 export class MetadataService {
   private metadataTemplateUrl = 'api/templates';  // URL to web api
+  private metadataClassifierUrl = 'api/classifier';  // URL to web api
   constructor(private http: HttpClient) { }
-  getMetadataTemplates(): Observable<MetadataTemplate[]> {
-    return this.http.get<MetadataTemplate[]>(this.metadataTemplateUrl).pipe(
+  getMetadataTemplates(classifier: string): Observable<MetadataTemplate[]> {
+    let url = this.metadataTemplateUrl;
+    if (classifier && classifier !== 'all metadata') {
+      url = `${this.metadataTemplateUrl}?classifier=${classifier}`;
+    }
+    return this.http.get<MetadataTemplate[]>(url).pipe(
       catchError(this.handleError('getMetadataTemplates', []))
     );
   }
+
+  getMetadataClassifier(): Observable<any> {
+    return this.http.get<any>(this.metadataClassifierUrl).pipe(
+      catchError(this.handleError('getMetadataTemplates', []))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

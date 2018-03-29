@@ -18,19 +18,53 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: '01',
         name: '业务实体',
-        icon: 'Documents_58635.png'
+        icon: 'Documents_58635.png',
+        classifier: 'base',
+        description: '业务实体是什么呢'
       },
       {
         id: '02',
         name: '业务字段',
-        icon: 'Documents_58635.png'
+        icon: 'Documents_58635.png',
+        classifier: 'workflow',
+        description: '业务字段是什么呢'
       },
       {
         id: '03',
         name: '数据对象',
-        icon: 'Documents_58635.png'
+        icon: 'Documents_58635.png',
+        classifier: 'business',
+        description: '数据对象是一种描述表结构的元数据。'
       }
     ];
-    return { heroes, templates };
+    const classifier = {
+      'data': [
+        {
+          'label': '全部元数据类型',
+          'data': 'all metadata',
+          'expanded': true,
+          'expandedIcon': 'fa-folder-open',
+          'collapsedIcon': 'fa-folder',
+          'children': [{
+            'label': '基础元数据',
+            'data': 'base',
+            'expandedIcon': 'fa-folder-open',
+            'collapsedIcon': 'fa-folder'
+          }, {
+              'label': '工作流元数据',
+              'data': 'workflow',
+              'expandedIcon': 'fa-folder-open',
+              'collapsedIcon': 'fa-folder'
+          }, {
+            'label': '业务元数据',
+            'data': 'business',
+            'expandedIcon': 'fa-folder-open',
+            'collapsedIcon': 'fa-folder'
+          }
+          ]
+        }
+      ]
+    };
+    return { heroes, templates, classifier };
   }
 }

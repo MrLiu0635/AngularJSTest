@@ -9,6 +9,7 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 export class CreatemetadataComponent {
   @ViewChild('autoShownModal') autoShownModal: ModalDirective;
   // @Input()
+  classifier: string;
   isModalShown = false;
   metadata = {
     code: '',
@@ -40,5 +41,9 @@ export class CreatemetadataComponent {
 
   onHidden(): void {
     this.isModalShown = false;
+  }
+
+  onSelectedChange(classifier: string) {
+    this.classifier = classifier;
   }
 }

@@ -1,14 +1,22 @@
-<kendo-grid [data]="data" [height]="445" [selectable]="selectableSetting">
-  <kendo-grid-checkbox-column></kendo-grid-checkbox-column>
-  <kendo-grid-column field="icon" title="" width="64">
-  <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
-    <!-- <div class="d-flex flex-row"> -->
-    <img src="/assets/img/{{dataItem.icon}}" width="32" height="32" alt="" class="d-inline-block align-middle rounded-circle">
-    <!-- </div>       -->
-  </ng-template>
-  </kendo-grid-column>
-  <kendo-grid-column field="id" title="ID" width="40">
-  </kendo-grid-column>
-  <kendo-grid-column field="name" title="Name" width="250">
-  </kendo-grid-column>
-</kendo-grid>
+<div class="templateInfo">
+  <div class="templateSelector">
+    <kendo-grid [data]="data" [height]="449" [selectable]="selectableSetting" (selectionChange)=onSelectionChange($event)>
+      <kendo-grid-column field="icon" title="" width="64">
+      <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+        <!-- <div class="d-flex flex-row"> -->
+        <img src="/assets/img/{{dataItem.icon}}" width="32" height="32" alt="" class="d-inline-block align-middle rounded-circle">
+        <!-- </div>       -->
+      </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="id" title="ID" width="100">
+      </kendo-grid-column>
+      <kendo-grid-column field="name" title="Name" width="250">
+      </kendo-grid-column>
+    </kendo-grid>
+  </div>
+  <div class="templateDescription">
+    <div>
+      <label>{{templateDescription}}</label>
+    </div>
+  </div>
+</div>

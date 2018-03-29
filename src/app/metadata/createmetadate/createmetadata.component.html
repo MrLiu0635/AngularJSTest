@@ -1,7 +1,7 @@
 <!--第二种弹出方法的组件-->
 <div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal" class="modal fade"
 tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog" style='max-width:fit-content'>
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title pull-left">新建元数据</h4>
@@ -11,37 +11,34 @@ tabindex="-1" role="dialog" aria-hidden="true">
       </div>
       <div class="modal-body">
         <div class="templateBlock">
-          <div class="treeClassifier">
-            <app-treeclassifier></app-treeclassifier>
-          </div>
-          <div class="templateSelector">
-            <app-templatemetadata></app-templatemetadata>
-          </div>
-          <div class="templateInfo">
-            <div>
-              <label>数据对象是一种描述表结构的元数据。</label>
-            </div>
-          </div>
+          <app-treeclassifier (selectedChange)=onSelectedChange($event)></app-treeclassifier>
+          <app-templatemetadata [classifier]="classifier" (templateChange)=onTemplateChange($event)></app-templatemetadata>
         </div>
         <div class="infoBlock">
           <div class="fileCode">
-            <label for="code">编码</label>
-            <input type="text" class="form-control" required [(ngModel)]="metadata.code" ngControl="code" #code="ngModel">
-            <div [hidden]="code.valid || code.pristine" class="alert alert-danger">
-              Code is required
-            </div>
+              <span class="ui-float-label">
+                <input id="fileCode" class="form-control" type="text" pInputText [(ngModel)]="metadata.code" #fileCode="ngModel" required>
+                <label for="fileCode">编码</label>
+              </span>
+              <div [hidden]="fileCode.valid || fileCode.pristine" class="alert-danger">
+                Code is required
+              </div>
           </div>
           <div class="fileName">
-            <label for="name">名称</label>
-            <input type="text" class="form-control" required [(ngModel)]="metadata.name" ngControl="name" #name="ngModel">
-            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            <span class="ui-float-label">
+              <input id="fileName" class="form-control" type="text" pInputText [(ngModel)]="metadata.name" #fileName="ngModel" required>
+              <label for="fileName">名称</label>
+            </span>
+            <div [hidden]="fileName.valid || fileName.pristine" class="alert-danger">
               Name is required
             </div>
           </div>
           <div class="fileLocation">
-            <label for="location">位置</label>
-            <input type="text" class="form-control" required [(ngModel)]="metadata.location" ngControl="location" #location="ngModel">
-            <div [hidden]="location.valid || location.pristine" class="alert alert-danger">
+            <span class="ui-float-label">
+              <input id="fileLocation" class="form-control" type="text" pInputText [(ngModel)]="metadata.location" #fileLocation="ngModel" required>
+              <label for="fileLocation">位置</label>
+            </span>
+            <div [hidden]="fileLocation.valid || fileLocation.pristine" class="alert-danger">
               Location is required
             </div>
           </div>

@@ -1,0 +1,15 @@
+.templateSelector {
+  width: 450px;
+  height: 450px;
+  border: 0.5px solid #ddd;
+}
+
+.templateDescription {
+  width: 250px;
+  height: 450px;
+  border: 0.5px solid #ddd;
+}
+
+.templateInfo {
+  display: flex;
+}

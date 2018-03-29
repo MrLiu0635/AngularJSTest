@@ -1,4 +1,4 @@
 export class MetadataTemplate {
-    id: number;
+    id: string;
     name: string;
 }

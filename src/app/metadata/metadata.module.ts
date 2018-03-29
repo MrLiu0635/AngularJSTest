@@ -15,7 +15,8 @@ import { TreeModule, TreeTableModule, TreeNode, SharedModule } from 'primeng/pri
 import { GridModule } from '@progress/kendo-angular-grid';
 import { MetadataService } from './metadata.service';
 import { InMemoryDataService } from '../in-memory-data.service';
-
+import { MessageService } from '../message.service';
+import { InputTextModule } from 'primeng/inputtext';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,12 +25,13 @@ import { InMemoryDataService } from '../in-memory-data.service';
     TreeViewModule,
     TreeModule,
     TreeTableModule,
-    GridModule
+    GridModule,
+    InputTextModule
   ],
   exports: [
     CreatemetadataComponent
   ],
-  providers: [MetadataService, InMemoryDataService], // 服务提供者
+  providers: [MetadataService, InMemoryDataService, MessageService], // 服务提供者
   declarations: [CreatemetadataComponent, TreeclassifierComponent, TemplatemetadataComponent]
 })
 export class MetadataModule { }

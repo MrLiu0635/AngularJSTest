@@ -1,9 +1,7 @@
 <div class="treeClassifier">
-    <div *ngIf="files">
-        <p-tree class="d-flex h-100" 
-        [value]="files" 
-        selectionMode="single" 
-        (onNodeSelect)="nodeSelect($event)">
-        </p-tree>
-    </div>
+    <p-tree class="d-flex h-100" *ngIf="files"
+    [value]="files" 
+    selectionMode="single" 
+    (onNodeSelect)="nodeSelect($event)">
+    </p-tree>
 </div>
